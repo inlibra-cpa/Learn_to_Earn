@@ -12,6 +12,16 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
+import 'bootstrap/dist/js/bootstrap.bundle'
 import 'bootstrap/dist/js/bootstrap'
 import 'bootstrap/dist/css/bootstrap'
+import 'bootstrap/dist/css/bootstrap.css'
+import "@fortawesome/fontawesome-free/css/all"
+global.jQuery = require('jquery')
 require("stylesheets/application.scss")
+
+
+
+//= require jquery3
+//= require popper
+//= require bootstrap
