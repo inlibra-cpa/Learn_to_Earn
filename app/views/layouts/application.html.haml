@@ -1,4 +1,6 @@
-!!!
+= link_to "Home", root_path
+= link_to "Course", courses_path
+
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
@@ -10,4 +12,9 @@
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
   %body
+    = render 'layouts/header'
+    %p.notice= notice
+    %p.alert= alert
     = yield
+
+

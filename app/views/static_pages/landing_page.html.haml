@@ -29,34 +29,14 @@
 
 %h1 
   Welcome!
-  = link_to "Privacy Policy", privacy_policy_path, class: "btn btn-lg btn-warning"
-  = link_to privacy_policy_path, class: "btn btn-lg btn-warning" do
-    %i.fa-regular.fa-file-word
-    Privacy Policy
-  .card{:style => "width: 18rem;"}
-    %img.card-img-top{:alt => "...", :src => "..."}/
-    .card-body
-      %h5.card-title Card title
-      %p.card-text Some quick example text to build on the card title and make up the bulk of the card's content.
-      %a.btn.btn-primary{:href => "#"} Go somewhere
-%h1
-  Example heading
-  %span.badge.bg-secondary New
-%h2
-  Example heading
-  %span.badge.bg-secondary New
-%h3
-  Example heading
-  %span.badge.bg-secondary New
-%h4
-  Example heading
-  %span.badge.bg-secondary New
-%h5
-  Example heading
-  %span.badge.bg-secondary New
-%h6
-  Example heading
-  %span.badge.bg-secondary New
-%button.btn.btn-primary{:type => "button"}
-  Notifications
-  %span.badge.bg-secondary 4
+
+= link_to "Privacy Policy", privacy_policy_path, class: "btn btn-lg btn-warning"
+= link_to privacy_policy_path, class: "btn btn-lg btn-warning" do
+  %i.fa-regular.fa-file-word
+.card{style: "width: 18rem;"}
+  %img.card-img-top{alt: "...", src: "..."}/
+  .card-body
+    %h5.card-title Card title
+    %p.card-text Some quick example text to build on the card title and make up the bulk of the card's content.
+    %a.btn.btn-primary{href: "#"} Go somewhere
+

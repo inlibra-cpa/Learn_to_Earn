@@ -24,4 +24,7 @@ require("stylesheets/application.scss")
 
 //= require jquery3
 //= require popper
-//= require bootstrap
+import "bootstrap"
+require('stylesheets/application.scss')
+require("trix")
+require("@rails/actiontext")
