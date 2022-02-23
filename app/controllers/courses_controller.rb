@@ -1,13 +1,19 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: %i[ show edit update destroy ]
+  skip_before_action :authenticate_user!, only: %i[show index]
+  before_action :set_course, only: %i[show edit update destroy approve analytics]
 
   # GET /courses or /courses.json
   def index
-    @courses = Course.all
+    if params[:title]
+      @courses = Course.where('title ILIKE ?', "%#{params[:title]}%") #case-insensitive
+    else
+      @courses = Course.all
+    end
   end
 
   # GET /courses/1 or /courses/1.json
   def show
+    
   end
 
   # GET /courses/new
@@ -24,14 +30,10 @@ class CoursesController < ApplicationController
     @course = Course.new(course_params)
     @course.user = current_user
 
-    respond_to do |format|
-      if @course.save
-        format.html { redirect_to course_url(@course), notice: "Course was successfully created." }
-        format.json { render :show, status: :created, location: @course }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @course.errors, status: :unprocessable_entity }
-      end
+    if @course.save
+      redirect_to course_course_wizard_index_path(@course), notice: 'Course was successfully created.'
+    else
+      render :new
     end
   end
 
@@ -50,18 +52,17 @@ class CoursesController < ApplicationController
 
   # DELETE /courses/1 or /courses/1.json
   def destroy
-    @course.destroy
-
-    respond_to do |format|
-      format.html { redirect_to courses_url, notice: "Course was successfully destroyed." }
-      format.json { head :no_content }
+    if @course.destroy
+      redirect_to teaching_courses_path, notice: 'Course was successfully destroyed.'
+    else
+      redirect_to @course, alert: 'Course has enrollments. Can not be destroyed.'
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_course
-      @course = Course.find(params[:id])
+      @course = Course.friendly.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
