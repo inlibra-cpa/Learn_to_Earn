@@ -31,7 +31,7 @@ class CoursesController < ApplicationController
     @course.user = current_user
 
     if @course.save
-      redirect_to course_course_wizard_index_path(@course), notice: 'Course was successfully created.'
+      redirect_to course_path(@course), notice: 'Course was successfully created.'
     else
       render :new
     end
@@ -53,7 +53,7 @@ class CoursesController < ApplicationController
   # DELETE /courses/1 or /courses/1.json
   def destroy
     if @course.destroy
-      redirect_to teaching_courses_path, notice: 'Course was successfully destroyed.'
+      redirect_to courses_path, notice: 'Course was successfully destroyed.'
     else
       redirect_to @course, alert: 'Course has enrollments. Can not be destroyed.'
     end

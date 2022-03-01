@@ -10,14 +10,6 @@
       .fa.fa-graduation-cap
       New course
   .card-body
-    = simple_form_for(@course) do |f|
-      - if @course.errors.any?
-        .container.text-danger
-          - @course.errors.full_messages.each do |msg|
-            %li= msg
-      .form-inputs
-        = f.input :title, input_html: { autocomplete: 'off' }
-      .form-actions
-        = f.button :submit
+    = render 'form'
   .card-footer
     = link_to 'Back', courses_path
