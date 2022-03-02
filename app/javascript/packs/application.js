@@ -7,24 +7,10 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import "bootstrap"
+import "@fortawesome/fontawesome-free/css/all"
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-import 'bootstrap/dist/js/bootstrap.bundle'
-import 'bootstrap/dist/js/bootstrap'
-import 'bootstrap/dist/css/bootstrap'
-import 'bootstrap/dist/css/bootstrap.css'
-import "@fortawesome/fontawesome-free/css/all"
-global.jQuery = require('jquery')
-require("stylesheets/application.scss")
-
-
-
-//= require jquery3
-//= require popper
-import "bootstrap"
-require('stylesheets/application.scss')
-require("trix")
-require("@rails/actiontext")
